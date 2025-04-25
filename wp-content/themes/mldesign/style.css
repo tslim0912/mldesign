@@ -1,0 +1,58 @@
+/*
+Theme Name: MLDesign
+Theme URI: http://evoweb.com.my/
+Author: Evoweb
+Author URI: http://evoweb.com.my/
+Description: MLDesign is based on customize styling, bootstrap and jQuery.
+Version: 1.0.0
+Tested up to: 5.4
+Requires PHP: 5.6
+License: GNU General Public License v2 or later
+License URI: LICENSE
+Text Domain: mldesign
+Tags: custom-background, custom-logo, custom-menu, featured-images, threaded-comments, translation-ready
+
+This theme, like WordPress, is licensed under the GPL.
+Use it to make something cool, have fun, and share what you've learned.
+
+MLDesign is based on customize styling, bootstrap and jQuery.
+*/
+
+:root {
+    --primary-white: #fafafa;
+    --primary-black: #000;
+    --font-KozGoPr6N: "KozGoPr6N";
+    --font-RedHatDisplay: "RedHatDisplay";
+    --fw-extra-light: 200;
+    --fw-light: 300;
+    --fw-regular: 400;
+    --fw-medium: 500;
+    --fw-semi-bold: 600;
+    --fw-bold: 700;
+    --fw-extra-bold: 800;
+    --fw-black: 900;
+}
+* {
+    box-sizing: border-box;
+    position: relative;
+}
+html, body {
+    padding: 0;
+    margin: 0;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    color: var(--primary-white);
+    background: var(--primary-black);
+}
+h1, h2, h3, h4, h5, h6, p, a, span, li, input, textarea, select {
+    margin-bottom: 0;
+    color: var(--primary-white);
+}
+h1, h2, h3, h4, h5, h6 {}
+p, a, span, li, input, textarea, select {}
+.font-KozGoPr6N {
+    font-family: var(--font-KozGoPr6N);
+}
+.font-RedHatDisplay {
+    font-family: var(--font-RedHatDisplay);
+}
