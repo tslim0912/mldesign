@@ -1,0 +1,24 @@
+# Ignore WordPress core directories
+wp-admin/
+wp-includes/
+
+# Ignore default theme
+wp-content/themes/twentytwentyfive/
+
+# Optional: Ignore all other themes except your custom one(s)
+# Uncomment the following lines and replace 'your-theme-name' if needed
+# wp-content/themes/*
+# wp-content/themes/your-theme-name/
+
+# Optional: Ignore all plugins except your custom plugin(s)
+# wp-content/plugins/*
+# wp-content/plugins/your-plugin-name/
+
+# Ignore common system files
+.DS_Store
+Thumbs.db
+*.log
+
+# Ignore vendor and node modules if using composer/npm
+/vendor/
+/node_modules/
