@@ -10,15 +10,15 @@
 get_header();
 ?>
     <main class="site-main" id="primary">
-        <section class="listing-page listing-awards">
+        <section class="listing-page listing-insights">
             <div class="container-fluid">
                 <div class="row justify-content-center">
                     <div class="col-12 col-md-11 col-xl-9 px-4 px-md-0">
                         <div class="listing-inner d-flex flex-row flex-wrap justify-content-between">
-                            <div class="listing-header">
-                                <h2 class="font-RedHatDisplay fw-medium text-uppercase">Awards</h2>
+                            <div class="listing-header w-100">
+                                <h2 class="font-RedHatDisplay fw-medium text-uppercase">Insights</h2>
                             </div>
-                            <div class="listing-body">
+                            <div class="listing-body w-100">
                                 <div class="listing-body-inner">
                                 <?php
                                 $i = 1;
@@ -26,7 +26,7 @@ get_header();
                                     while( have_posts() ) {
                                         the_post();
                                         set_query_var( 'loop_index', $i );
-                                        get_template_part( 'template-parts/archive-template', 'awards' );
+                                        get_template_part( 'template-parts/archive-template', 'insights' );
                                         $i++;
                                     }
                                 }

@@ -1,0 +1,64 @@
+@media (max-width: 767px) {
+    .listing-page .listing-inner > div[class*='listing-'] {
+        width: 100%;
+    }
+    .listing-page.listing-awards .listing-item-inner {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        padding: 20px 0;
+        padding-left: 30px;
+    }
+    .listing-page.listing-awards .list-col.list-col-index {
+        position: absolute;
+        padding-left: 0;
+        top: 20px;
+        left: 0;
+    }
+}
+@media (min-width: 768px) {
+    .listing-page.listing-awards .listing-header {
+        width: 25%;
+    }
+    .listing-page.listing-awards .listing-item-inner {
+        display: flex;
+        flex-wrap: nowrap;
+        flex-direction: row;
+        gap: 15px;
+        padding: 20px 0;
+    }
+    .listing-page.listing-awards .list-col.list-col-index {
+        width: 30px;
+        min-width: 30px;
+    }
+    .listing-page.listing-awards .list-col {
+        width: 100%;
+    }
+    .listing-page.listing-awards .list-col.list-col-year {
+        min-width: 50px;
+        width: 50px;
+        padding-right: 15px;
+    }
+}
+@media (min-width: 768px) and (max-width: 1199px) {
+    .listing-page.listing-awards .listing-item-inner .list-col {
+        font-size: 12px;
+        line-height: 15px;
+    }
+}
+@media (min-width: 1200px) {
+    .listing-page.listing-awards .listing-item-inner {
+        gap: 25px;
+    }
+    .listing-page.listing-awards .list-col.list-col-year {
+        padding-right: 25px;
+        min-width: 60px;
+        width: 60px;
+    }
+}
+@media (min-width: 1900px) {
+    .listing-page.listing-awards .listing-item-inner {
+        gap: 40px;
+    }
+
+}

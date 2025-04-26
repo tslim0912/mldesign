@@ -140,22 +140,45 @@ add_action( 'widgets_init', 'mldesign_widgets_init' );
  */
 function mldesign_scripts() {
     wp_enqueue_style( 'bootstrap-css', 'https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css', [], null);
+    wp_enqueue_style( 'hamburger', get_template_directory_uri() . '/css/hamburgers.min.css', [], _S_VERSION);
 	wp_enqueue_style( 'mldesign-style', get_stylesheet_uri(), array(), _S_VERSION );
     wp_enqueue_style( 'custom', get_template_directory_uri() . '/css/custom.css', [], _S_VERSION);
     if( is_archive() ) {
+        wp_enqueue_style( 'archive', get_template_directory_uri() . '/css/archive.css', [], _S_VERSION);
         if( is_post_type_archive('awards') ) {
             wp_enqueue_style( 'archive-awards', get_template_directory_uri() . '/css/archive-awards.css', [], _S_VERSION);
         }
+        if( is_post_type_archive('insights') ) {
+            wp_enqueue_style( 'archive-insights', get_template_directory_uri() . '/css/archive-insights.css', [], _S_VERSION);
+        }
     }
     wp_enqueue_style( 'media-query', get_template_directory_uri() . '/css/media.css', [], _S_VERSION);
+    if( is_archive() ) {
+        wp_enqueue_style( 'archive-media-query', get_template_directory_uri() . '/css/archive-media.css', [], _S_VERSION);
+    }
 
 	wp_enqueue_script( 'jQuery', 'https://code.jquery.com/jquery-3.7.1.min.js', [], null, true);
 	wp_enqueue_script( 'bootstrap-js', 'https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js', [], null, true);
 	wp_enqueue_script( 'mldesign-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
 	wp_enqueue_script( 'scripts', get_template_directory_uri() . '/js/scripts.js', array(), _S_VERSION, true );
+    $total_posts = array();
+    if( post_type_exists('works') && wp_count_posts('works')->publish > 0 ) {
+        $total_posts['works'] = wp_count_posts('works')->publish;
+    }
+    if( post_type_exists('accomplishments') && wp_count_posts('accomplishments')->publish > 0 ) {
+        $total_posts['accomplishments'] = wp_count_posts('accomplishments')->publish;
+    }
+    if( post_type_exists('insights') && wp_count_posts('insights')->publish > 0 ) {
+        $total_posts['insights'] = wp_count_posts('insights')->publish;
+    }
+    if( post_type_exists('awards') && wp_count_posts('awards')->publish > 0 ) {
+        $total_posts['awards'] = wp_count_posts('awards')->publish;
+    }
     wp_localize_script( 'scripts', 'global', array(
         'ajax_url' => admin_url('admin-ajax.php'),
         'nonce' => wp_create_nonce('mldesign_global_nonce'),
+        'get_posts' => $total_posts,
+        'copyright_year' => date("Y"),
     ));
 }
 add_action( 'wp_enqueue_scripts', 'mldesign_scripts' );
@@ -217,3 +240,31 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
 
+require get_template_directory() . '/inc/class-mld-custom-menu-walker.php';
+
+function get_menu_item_count($location) {
+    $locations = get_nav_menu_locations();
+    
+    if (isset($locations[$location])) {
+        $menu_id = $locations[$location];
+        
+        $menu_items = wp_get_nav_menu_items($menu_id);
+        
+        return count($menu_items);
+    }
+    
+    return 0;
+}
+
+function custom_footer_widgets_init() {
+    register_sidebar( array(
+        'name'          => __( 'Footer Columns', 'mldesign' ),
+        'id'            => 'footer-columns',
+        'description'   => __( 'Add widgets here for the first footer column.', 'mldesign' ),
+        'before_widget' => '<div id="%1$s" class="widget %2$s">',
+        'after_widget'  => '</div>',
+        'before_title'  => '<h4 class="widget-title">',
+        'after_title'   => '</h4>',
+    ) );
+}
+add_action( 'widgets_init', 'custom_footer_widgets_init' );

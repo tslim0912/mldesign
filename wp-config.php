@@ -19,6 +19,10 @@
  */
 
 // ** Database settings - You can get this info from your web host ** //
+
+define( 'WP_HOME', 'http://localhost/mldesign' );
+define( 'WP_SITEURL', 'http://localhost/mldesign' );
+
 /** The name of the database for WordPress */
 define( 'DB_NAME', 'mldesign' );
 

@@ -17,12 +17,20 @@ Use it to make something cool, have fun, and share what you've learned.
 
 MLDesign is based on customize styling, bootstrap and jQuery.
 */
-
+@font-face {
+    font-family: 'KozGoPr6N';
+    src: url(fonts/KozGoPr6N-Regular.otf) format('opentype');
+}
+@font-face {
+    font-family: 'RedHatDisplay';
+    src: url(fonts/RedHatDisplay.ttf) format('truetype');
+}
 :root {
-    --primary-white: #fafafa;
+    --primary-white: #FAFAFA;
+    --primary-grey: #BABABA;
     --primary-black: #000;
-    --font-KozGoPr6N: "KozGoPr6N";
-    --font-RedHatDisplay: "RedHatDisplay";
+    --font-KozGoPr6N: 'KozGoPr6N';
+    --font-RedHatDisplay: 'RedHatDisplay';
     --fw-extra-light: 200;
     --fw-light: 300;
     --fw-regular: 400;
@@ -43,6 +51,13 @@ html, body {
     text-rendering: optimizeLegibility;
     color: var(--primary-white);
     background: var(--primary-black);
+    font-family: var(--font-RedHatDisplay);
+    font-size: 14px;
+    line-height: 20px;
+}
+.site-main {
+    
+    background: url('fonts/RedHatDisplay.ttf');
 }
 h1, h2, h3, h4, h5, h6, p, a, span, li, input, textarea, select {
     margin-bottom: 0;
@@ -55,4 +70,122 @@ p, a, span, li, input, textarea, select {}
 }
 .font-RedHatDisplay {
     font-family: var(--font-RedHatDisplay);
+}
+.fw- {
+    font-weight: var(--fw-);
+}
+.fw-extra-light {
+    font-weight: var(--fw-extra-light);
+}
+.fw-light {
+    font-weight: var(--fw-light);
+}
+.fw-regular {
+    font-weight: var(--fw-regular);
+}
+.fw-medium {
+    font-weight: var(--fw-medium);
+}
+.fw-semi-bold {
+    font-weight: var(--fw-semi-bold);
+}
+.fw-bold {
+    font-weight: var(--fw-bold);
+}
+.fw-extra-bold {
+    font-weight: var(--fw-extra-bold);
+}
+.fw-black {
+    font-weight: var(--fw-black);
+}
+#masthead {
+    position: sticky;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    z-index: 101;
+    background: var(--primary-black)
+}
+.navbar .navbar-inner {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin: 0 auto;
+}
+.navbar .navbar-nav .nav-link sup {
+    color: var(--primary-grey);
+}
+.navbar .navbar-nav .nav-link {
+    display: block;
+    padding: 0;
+    color: var(--primary-white);
+    font-weight: var(--fw-regular);
+}
+.navbar .navbar-nav .nav-item .nav-link::after {
+    content: '';
+    position: absolute;
+    display: block;
+    width: 0;
+    height: 1px;
+    background: var(--primary-white);
+    left: 50%;
+    bottom: -1px;
+    transform: translate(-50%, 0);
+    opacity: 0;
+    visibility: hidden;
+    transform-origin: center center;
+    transition: all 0.3s ease;
+}
+.navbar .navbar-nav .nav-item.site-logo .nav-link::after {
+    display: none;
+}
+.navbar .navbar-nav .menu-item.current-menu-item .nav-link {
+    pointer-events: none;
+}
+.navbar .navbar-nav .nav-link:hover::after, .navbar .navbar-nav .menu-item.current-menu-item .nav-link::after {
+    width: 100%;
+    opacity: 1;
+    visibility: visible;
+}
+.hamburger .hamburger-inner, .hamburger .hamburger-inner:after, .hamburger .hamburger-inner:before, .hamburger.is-active .hamburger-inner, .hamburger.is-active .hamburger-inner:after, .hamburger.is-active .hamburger-inner:before {
+    background: var(--primary-white);
+}
+.navbar .navbar-toggler, .navbar .navbar-toggler:hover, .navbar .navbar-toggler:focus, .navbar .navbar-toggler:visited {
+    border: none;
+    outline: none;
+    box-shadow: none;
+}
+.listing-page {
+    padding: 50px 0;
+}
+.listing-page .listing-header {
+    padding-top: 20px;
+}
+
+
+#colophon {
+    padding: 70px 0 110px;
+    background: var(--primary-black);
+}
+.footer-columns {
+    border-top: 1px solid var(--primary-white);
+}
+.footer-columns > div:not(:last-child) {
+    padding: 70px 0;
+}
+.footer-columns .wp-block-column h5 {
+    font-size: 15px;
+    line-height: 25px;
+}
+.footer-columns .wp-block-column .wp-block-heading {
+    font-weight: var(--fw-medium);
+}
+.footer-columns .copyright {
+    font-size: 13px;
+    line-height: 25px;
+}
+.footer-columns .wp-block-separator {
+    background: var(--primary-white);
+    opacity: 1;
 }

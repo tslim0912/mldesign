@@ -1,0 +1,18 @@
+.listing-page {
+
+}
+.listing-inner {
+    gap: 30px;
+}
+.listing-page.listing-awards .listing-inner > div[class*='.listing-'] {
+    width: 100%;
+}
+.listing-page.listing-awards .listing-header {
+    min-width: 150px;
+}
+.listing-page.listing-awards .listing-body {
+    flex: 1;
+}
+.listing-page.listing-awards .listing-item {
+    border-bottom: 1px solid var(--primary-white);
+}

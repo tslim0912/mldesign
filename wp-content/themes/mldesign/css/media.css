@@ -1,0 +1,111 @@
+@media (max-width: 767px) {
+    .navbar .navbar-brand {
+        width: 125px;
+    }
+}
+@media (min-width: 768px) {
+    .footer-columns > .widget_block:last-child .wp-block-group__inner-container {
+        display: flex;
+        align-items: center;
+        gap: 25px;
+    }
+    .footer-columns > .widget_block:last-child .wp-block-group__inner-container hr {
+        width: 100%;
+        flex: 1;
+    }
+}
+@media (min-width: 768px) and (max-width: 1199px) {
+    .navbar .navbar-brand {
+        width: 240px;
+    }
+}
+@media (max-width: 1199px) {
+    .navbar .navbar-inner {
+        padding: 0 24px;
+    }
+    .navbar .navbar-nav .nav-link::after {
+        display: none;
+    }
+    .navbar .navbar-toggler {
+        position: absolute;
+        top: 50%;
+        left: 24px;
+        transform: translateY(-50%);
+    }
+}
+@media (min-width: 1200px) {
+    .navbar {
+        padding-top: 30px;
+        padding-bottom: 30px;
+    }
+    .navbar .navbar-inner {
+        max-width: 75%;
+    }
+    .navbar .navbar-brand {
+        width: 300px;
+    }
+    .navbar .navbar-nav {
+        width: 100%;
+        align-items: center;
+    }
+    .navbar .navbar-nav .site-logo {
+        margin-left: auto!important;
+        margin-right: auto!important;
+    }
+    .navbar .navbar-nav .nav-item {
+        margin-left: 40px;
+    }
+    .navbar .navbar-nav.navbar-breakpoint-2 .nav-item:nth-child(-n+2), .navbar .navbar-nav.navbar-breakpoint-3 .nav-item:nth-child(-n+3) {
+        margin-right: 40px;
+    }
+    .navbar .navbar-nav.navbar-breakpoint-2 .nav-item:nth-child(2), .navbar .navbar-nav.navbar-breakpoint-3 .nav-item:nth-child(3) {
+        margin-right: 0;
+    }
+    .navbar .navbar-nav.navbar-breakpoint-2 .nav-item:nth-child(-n+2), .navbar .navbar-nav.navbar-breakpoint-3 .nav-item:nth-child(-n+3), .navbar .navbar-nav.navbar-breakpoint-2 .nav-item:nth-child(4), .navbar .navbar-nav.navbar-breakpoint-3 .nav-item:nth-child(5) {
+        margin-left: 0;
+    }
+    .listing-page.listing-insights .listing-body-inner {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 40px 30px;
+    }
+    .list-thumbnail {
+        height: 400px;
+    }
+}
+@media (min-width: 1400px) {
+
+}
+@media (min-width: 1600px) {
+    .navbar .navbar-nav .nav-item {
+        margin-left: 50px;
+    }
+    .navbar .navbar-nav.navbar-breakpoint-2 .nav-item:nth-child(-n+2), .navbar .navbar-nav.navbar-breakpoint-3 .nav-item:nth-child(-n+3) {
+        margin-right: 50px;
+    }
+}
+@media (min-width: 1900px) {
+    html, body {
+        font-size: 16px;
+        line-height: 24px;
+    }
+    .navbar {
+        padding-top: 40px;
+        padding-bottom: 40px;
+    }
+    .listing-page.listing-insights .listing-body-inner {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 70px 50px;
+    }
+    .list-thumbnail {
+        height: 450px;
+    }
+}
+@media (min-width: 2300px) {
+    html, body {
+        font-size: 18px;
+        line-height: 28px;
+    }
+    .navbar .navbar-brand {
+        width: 400px;
+    }
+}

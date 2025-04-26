@@ -4,7 +4,7 @@ $index = str_pad( $i, 2, '0', STR_PAD_LEFT );
 $post_id = get_the_ID();
 $post_title = get_the_title();
 $post_award = get_field('award_level', $post_id);
-$terms = get_the_terms( get_the_ID(), 'award_year' );
+$terms = get_the_terms( $post_id, 'award-year' );
 $post_year = '';
 if ( ! empty( $terms ) && ! is_wp_error( $terms ) ) {
     $term = $terms[0];

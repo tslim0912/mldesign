@@ -1,0 +1,41 @@
+.listing-page.listing-insights .listing-body-inner {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px 25px;
+}
+.listing-page.listing-insights .list-link {
+    color: var(--primary-white);  
+}
+.listing-page.listing-insights .list-link, .listing-page.listing-insights .list-link:hover, .listing-page.listing-insights .list-link:focus {
+    text-decoration: none;
+}
+.listing-item-inner {
+    height: 100%;
+    gap: 25px;
+}
+.list-col.list-col-body {
+    gap: 40px;
+}
+.listing-page.listing-insights .list-thumbnail {
+    overflow: hidden;
+}
+.listing-page.listing-insights .list-thumbnail a {
+    display: block;
+}
+.listing-page.listing-insights .list-thumbnail a, .listing-page.listing-insights .list-thumbnail img {
+    width: 100%;
+    height: 100%;
+}
+.listing-page.listing-insights .list-thumbnail img {
+    object-fit: cover;
+    object-position: center center;
+    transform-origin: center center;
+    transition: all 0.5s ease;
+}
+.listing-page.listing-insights .list-thumbnail:hover img {
+    transform: scale(1.15);
+}
+.list-col-date {
+    font-size: 12px;
+    line-height: 15px;
+}
