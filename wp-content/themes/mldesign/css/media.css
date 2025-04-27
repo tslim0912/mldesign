@@ -1,6 +1,36 @@
 @media (max-width: 767px) {
+    .navbar {
+        padding: 15px 0;
+    }
     .navbar .navbar-brand {
-        width: 125px;
+        width: 170px;
+    }
+    .navbar-toggler {
+        height: 24px;
+    }
+    .hamburger-box, .hamburger .hamburger-inner, .hamburger .hamburger-inner:after, .hamburger .hamburger-inner:before {
+        width: 35px;
+    }
+    .hamburger .hamburger-inner, .hamburger .hamburger-inner:after, .hamburger .hamburger-inner:before {
+        height: 3px;
+    }
+    .intro-caption-row {
+        padding: 95px 0 30px;
+    }
+    .img-wrapper {
+        margin-bottom: 25px;
+    }
+    .listing-insights .listing-body-inner {
+        gap: 50px 25px;
+    }
+    .listing-insights .list-thumbnail {
+        height: 230px;
+    }
+    #colophon {
+        padding: 70px 0 30px;
+    }
+    .footer-columns .wp-block-columns {
+        gap: 60px;
     }
 }
 @media (min-width: 768px) {
@@ -15,8 +45,19 @@
     }
 }
 @media (min-width: 768px) and (max-width: 1199px) {
+    .navbar {
+        padding: 20px 0;
+    }
     .navbar .navbar-brand {
         width: 240px;
+    }
+    .listing-page.listing-insights .list-thumbnail {
+        height: 380px;
+    }
+    .footer-columns .wp-block-columns .wp-block-column:not(:first-child) {
+        flex-basis: auto !important;
+        width: calc(50% - 1em);
+        flex: unset;
     }
 }
 @media (max-width: 1199px) {
@@ -64,12 +105,16 @@
     .navbar .navbar-nav.navbar-breakpoint-2 .nav-item:nth-child(-n+2), .navbar .navbar-nav.navbar-breakpoint-3 .nav-item:nth-child(-n+3), .navbar .navbar-nav.navbar-breakpoint-2 .nav-item:nth-child(4), .navbar .navbar-nav.navbar-breakpoint-3 .nav-item:nth-child(5) {
         margin-left: 0;
     }
-    .listing-page.listing-insights .listing-body-inner {
+    .listing-insights .listing-body-inner {
         grid-template-columns: repeat(3, 1fr);
         gap: 40px 30px;
     }
     .list-thumbnail {
         height: 400px;
+    }
+    #colophon .wp-block-buttons .wp-block-button:first-child a {
+        font-size: 1.6666667vw;
+        line-height: 1.6666667vw;
     }
 }
 @media (min-width: 1400px) {
@@ -92,12 +137,18 @@
         padding-top: 40px;
         padding-bottom: 40px;
     }
-    .listing-page.listing-insights .listing-body-inner {
+    .intro-caption-row {
+        height: 100vh;
+    }
+    .listing-insights .listing-body-inner {
         grid-template-columns: repeat(3, 1fr);
         gap: 70px 50px;
     }
     .list-thumbnail {
         height: 450px;
+    }
+    .flex-section-row {
+        gap: 100px;
     }
 }
 @media (min-width: 2300px) {
@@ -107,5 +158,8 @@
     }
     .navbar .navbar-brand {
         width: 400px;
+    }
+    .intro-caption-row {
+        height: 1000px;
     }
 }

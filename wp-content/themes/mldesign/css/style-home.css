@@ -1,0 +1,17 @@
+#about {
+    padding: 100px 0;
+}
+#insights {
+    padding-bottom: 70px;
+}
+@media (max-width: 767px) {}
+@media (min-width: 768px) {}
+@media (min-width: 1200px) {}
+@media (min-width: 1900px) {
+    #about {
+        padding: 150px 0;
+    }
+    #insights {
+        padding-bottom: 100px;
+    }
+}

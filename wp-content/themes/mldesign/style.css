@@ -55,24 +55,23 @@ html, body {
     font-size: 14px;
     line-height: 20px;
 }
+#page {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
 .site-main {
-    
-    background: url('fonts/RedHatDisplay.ttf');
+    flex: 1;
 }
 h1, h2, h3, h4, h5, h6, p, a, span, li, input, textarea, select {
     margin-bottom: 0;
     color: var(--primary-white);
 }
-h1, h2, h3, h4, h5, h6 {}
-p, a, span, li, input, textarea, select {}
 .font-KozGoPr6N {
     font-family: var(--font-KozGoPr6N);
 }
 .font-RedHatDisplay {
     font-family: var(--font-RedHatDisplay);
-}
-.fw- {
-    font-weight: var(--fw-);
 }
 .fw-extra-light {
     font-weight: var(--fw-extra-light);
@@ -98,14 +97,44 @@ p, a, span, li, input, textarea, select {}
 .fw-black {
     font-weight: var(--fw-black);
 }
+.btn {
+    position: relative;
+}
+.btn.btn-outline {
+    padding: 0;
+    border: none;
+}
+.btn.btn-outline::after {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    left: 0;
+    bottom: -1px;
+    background: var(--primary-white);
+}
+.btn:hover {
+    opacity: 0.85;
+}
+.divider {
+    position: relative;
+    width: 100%;
+    height: 1px;
+    padding: 25px 0;
+    background: var(--primary-white);
+}
+.flex-section-row {
+    gap: 50px;
+}
 #masthead {
-    position: sticky;
+    position: fixed;
     top: 0;
     left: 0;
     right: 0;
     width: 100%;
     z-index: 101;
-    background: var(--primary-black)
+    background: linear-gradient(0deg, transparent, rgba(0,0,0,0.4) );
 }
 .navbar .navbar-inner {
     display: flex;
@@ -151,6 +180,9 @@ p, a, span, li, input, textarea, select {}
 .hamburger .hamburger-inner, .hamburger .hamburger-inner:after, .hamburger .hamburger-inner:before, .hamburger.is-active .hamburger-inner, .hamburger.is-active .hamburger-inner:after, .hamburger.is-active .hamburger-inner:before {
     background: var(--primary-white);
 }
+.navbar .navbar-toggler {
+    padding: 0;
+}
 .navbar .navbar-toggler, .navbar .navbar-toggler:hover, .navbar .navbar-toggler:focus, .navbar .navbar-toggler:visited {
     border: none;
     outline: none;
@@ -162,8 +194,6 @@ p, a, span, li, input, textarea, select {}
 .listing-page .listing-header {
     padding-top: 20px;
 }
-
-
 #colophon {
     padding: 70px 0 110px;
     background: var(--primary-black);
@@ -172,7 +202,7 @@ p, a, span, li, input, textarea, select {}
     border-top: 1px solid var(--primary-white);
 }
 .footer-columns > div:not(:last-child) {
-    padding: 70px 0;
+    padding: 70px 0 50px;
 }
 .footer-columns .wp-block-column h5 {
     font-size: 15px;
@@ -188,4 +218,53 @@ p, a, span, li, input, textarea, select {}
 .footer-columns .wp-block-separator {
     background: var(--primary-white);
     opacity: 1;
+}
+.footer-columns .wp-block-columns {
+    width: 100%;
+}
+.footer-columns .wp-block-column {
+    flex: 1;
+}
+#colophon .wp-block-buttons .wp-block-button {
+    position: relative;
+    padding-bottom: 16px;
+}
+#colophon .wp-block-buttons .wp-block-button::before, #colophon .wp-block-buttons .wp-block-button::after {
+    content: '';
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: var(--primary-white);
+    transform: translateY(-50%);
+}
+
+#colophon .wp-block-buttons .wp-block-button::after {
+    height: 3px;
+    width: 50%;
+}
+#colophon .wp-block-buttons .wp-block-button:first-child a {
+    font-size: 22px;
+    line-height: 24px;
+    white-space: nowrap;
+}
+#colophon .wp-block-buttons .wp-block-button a {
+    padding: 0;
+    border: none;
+    font-weight: var(--fw-medium);
+    text-transform: uppercase;
+}
+#colophon .wp-block-buttons .wp-block-button a, #colophon .wp-block-buttons .wp-block-button a:hover, .footer-columns .wp-block-column a, .footer-columns .wp-block-column a:hover {
+    color: var(--primary-white);
+}
+#colophon .wp-block-buttons .wp-block-button a:hover, .footer-columns .wp-block-column a:hover {
+    opacity: 0.85;
+}
+.footer-columns .wp-block-column h2:not(:last-child), .footer-columns .wp-block-column h3:not(:last-child), .footer-columns .wp-block-column h4:not(:last-child), .footer-columns .wp-block-column h5:not(:last-child), .footer-columns .wp-block-column h6:not(:last-child), .footer-columns .wp-block-column p:not(:last-child), #colophon .wp-block-buttons .wp-block-button:not(:last-child) {
+    margin-bottom: 25px;
+}
+.footer-columns .wp-block-column .wp-block-image figure {
+    max-width: 320px;
 }

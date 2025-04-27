@@ -1,4 +1,13 @@
 $(document).ready(function() {
+    $('.parallax-image').each(function () {
+        new simpleParallax(this, {
+            scale: 1.5,
+            orientation: 'up',
+            delay: 0.2,
+            transition: 'cubic-bezier(0,0,0,1)'
+        });
+    });
+
     $(document).on('click', '#masthead .navbar-toggler', function(e) {
         e.preventDefault();
         var $this = $(this);

@@ -1,0 +1,109 @@
+.backdrop {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    z-index: 0;
+}
+.backdrop picture, .backdrop img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+}
+.backdrop picture {
+    display: block;
+    width: 100%;
+}
+.simpleParallax, .parallax-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    z-index: 0;
+}
+.simpleParallax  picture, .simpleParallax img {
+    width: 100%;
+    height: auto;
+    transform: translateY(0);
+    transition: transform 0.1s ease-out;
+}
+section > div[class*='container'] {
+    z-index: 1;
+}
+.intro-caption-row {
+    height: 600px;
+}
+.intro-caption {
+    width: 100%;
+}
+.intro-caption, .intro-caption * {
+    letter-spacing: 3px;
+}
+.intro-caption h2, .intro-caption h3, .intro-caption h4, .intro-caption h5, .intro-caption h6 {
+    color: #FAFAFA;
+}
+.intro-caption h2 {
+    font-size: 38px;
+    line-height: 45px;
+}
+.intro-caption p {
+    font-size: 19px;
+    line-height: 23px;
+    color: #BABABA;
+    margin-bottom: 0;
+}
+.listing-insights .listing-body-inner {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px 25px;
+}
+.listing-insights .list-link {
+    color: var(--primary-white);  
+}
+.listing-insights .list-link, .listing-insights .list-link:hover, .listing-insights .list-link:focus {
+    text-decoration: none;
+}
+.listing-item-inner {
+    height: 100%;
+    gap: 25px;
+}
+.list-col.list-col-body {
+    gap: 40px;
+}
+.listing-insights .list-thumbnail {
+    overflow: hidden;
+}
+.listing-insights .list-thumbnail a {
+    display: block;
+}
+.listing-insights .list-thumbnail a, .listing-insights .list-thumbnail img {
+    width: 100%;
+    height: 100%;
+}
+.listing-insights .list-thumbnail img {
+    object-fit: cover;
+    object-position: center center;
+    transform-origin: center center;
+    transition: all 0.5s ease;
+}
+.listing-insights .list-thumbnail:hover img {
+    transform: scale(1.15);
+}
+.list-col-date {
+    font-size: 12px;
+    line-height: 15px;
+}
+.text-editor h2, .text-editor h3, .text-editor h4, .text-editor h5, .text-editor h6 {
+    font-weight: var(--fw-light);
+}
+.text-editor h2 strong, .text-editor h3 strong, .text-editor h4 strong, .text-editor h5 strong, .text-editor h6 strong {
+    font-weight: var(--fw-medium);
+}
+.text-editor p {
+    color: var(--primary-grey);
+}
