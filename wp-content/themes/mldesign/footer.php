@@ -19,7 +19,8 @@
                     <?php 
                     if ( is_active_sidebar( 'footer-columns' ) ) : 
                         dynamic_sidebar( 'footer-columns' );
-                    endif; ?>
+                    endif; 
+                    ?>
                     </div>
                 </div>
             </div>
