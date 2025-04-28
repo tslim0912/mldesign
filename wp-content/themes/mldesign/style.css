@@ -97,6 +97,9 @@ h1, h2, h3, h4, h5, h6, p, a, span, li, input, textarea, select {
 .fw-black {
     font-weight: var(--fw-black);
 }
+.ms-auto, .mx-auto {
+    margin-left: auto;
+}
 .btn {
     position: relative;
 }
