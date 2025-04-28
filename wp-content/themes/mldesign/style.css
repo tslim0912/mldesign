@@ -125,7 +125,17 @@ h1, h2, h3, h4, h5, h6, p, a, span, li, input, textarea, select {
     width: 100%;
     height: 1px;
     padding: 25px 0;
+}
+.divider::before {
+    content: '';
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 50%;
     background: var(--primary-white);
+    width: 100%;
+    height: 1px;
+    transform: translateY(-50%);
 }
 .flex-section-row {
     gap: 50px;

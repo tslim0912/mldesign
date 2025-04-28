@@ -141,6 +141,7 @@ add_action( 'widgets_init', 'mldesign_widgets_init' );
 function mldesign_scripts() {
     wp_enqueue_style( 'bootstrap-css', 'https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css', [], null);
     wp_enqueue_style( 'hamburger', get_template_directory_uri() . '/css/hamburgers.min.css', [], _S_VERSION);
+    wp_enqueue_style( 'fancybox', get_template_directory_uri() . '/css/jquery.fancybox.min.css', [], _S_VERSION);
 	wp_enqueue_style( 'mldesign-style', get_stylesheet_uri(), array(), _S_VERSION );
     wp_enqueue_style( 'custom', get_template_directory_uri() . '/css/custom.css', [], _S_VERSION);
     if( is_page_template('page-home.php') ) {
@@ -163,6 +164,7 @@ function mldesign_scripts() {
 	wp_enqueue_script( 'jQuery', 'https://code.jquery.com/jquery-3.7.1.min.js', [], null, true);
 	wp_enqueue_script( 'simpleParallax', get_template_directory_uri() . '/js/simpleParallax.min.js', [], null, true);
 	wp_enqueue_script( 'bootstrap-js', 'https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js', [], null, true);
+	wp_enqueue_script( 'fancybox', get_template_directory_uri() . '/js/jquery.fancybox.min.js', array(), _S_VERSION, true );
 	wp_enqueue_script( 'mldesign-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
 	wp_enqueue_script( 'scripts', get_template_directory_uri() . '/js/scripts.js', array(), _S_VERSION, true );
     $total_posts = array();
@@ -275,4 +277,8 @@ add_action( 'widgets_init', 'custom_footer_widgets_init' );
 
 function mldesign_fallback_image_url() {
     return '/mldesign/wp-content/uploads/2025/04/banner-mldesign-home-intro.jpg';
+}
+
+function mldesign_divider() {
+	return '<div class="divider"></div>';
 }

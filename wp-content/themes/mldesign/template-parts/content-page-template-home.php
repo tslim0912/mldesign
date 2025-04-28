@@ -111,10 +111,141 @@ $column_link = $about['column_link'];
         </div>
     </div>
 </section>
+
 <?php
-
+$project = get_field('featured_project');
+$project_field_object = get_field_object('featured_project');
+$field_key_project = $project_field_object['key']; 
+$clean_field_key_project = str_replace('field_', '', $field_key_project);
+$unique_class_project = 'section-'.$clean_field_key_project.'-'.$page_id;
+$project_ta = $project['text_alignmnet'];
+$project_ta_mobile = $project['text_alignmnet_mobile'];
+$project_alignments = $project_ta_mobile.' '.$project_ta;
+$project_title = $project['section_title'];
+$project_divider = $project['divider'];
 ?>
+<section class="<?php echo $unique_class_project;?>" id="featured-project">
+    <div class="container-fluid">
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-10 col-xl-8 px-0 d-flex flex-column flex-section-row flex-row-insights">
+                <div class="d-flex flex-wrap justify-content-center justify-content-md-start align-items-md-start">
+                    <div class="col-12 mb-4 mb-md-0">
+                        <div class="text-editor <?php echo $project_alignments;?>">
+                            <?php echo $project_title;?>
+                        </div>
+                        <?php
+                        if( $project_divider ) {
+                            echo mldesign_divider();
+                        }
+                        ?>
+                    </div>
+                </div>
+                <div class="d-flex flex-wrap justify-content-center justify-content-md-start align-items-md-start">
+                    <div class="col-12 mb-4 mb-md-0">
+                    <?php
+                    $ppp = $project['posts_per_page'];
+                    $read_more = $project['read_more'];
+                    $p_args = array(
+                        'post_type' => 'projects',
+                        'post_status' => 'publish',
+                        'posts_per_page' => $ppp,
+                        'orderby' => 'date',
+                        'order' => 'desc',
+                    );
+                    $project = new WP_Query($p_args);
+                    if( $project->have_posts() ) {
+                    ?>
+                        <div class="featured-project-wrapper">
+                            <div class="swiper featured-project-swiper" id="featured-project-swiper">
+                                <div class="swiper-wrapper">
+                                <?php while( $project->have_posts() ) {
+                                    $project->the_post();
+                                    $project_title = get_the_title();
+                                    $project_location = get_field('location');
+                                    $project_url = get_permalink();
+                                    if( has_post_thumbnail() ) {
+                                        $project_thumbnail = get_the_post_thumbnail_url();
+                                    }
+                                    else {
+                                        $project_thumbnail = mldesign_fallback_image_url();
+                                    }
+                                    echo '<div class="swiper-slide project-item"><div class="project-item-inner"><div class="project-meta mb-4"><h5 class="project-title mb-2">'.$project_title.'</h5><p class="project-location">'.$project_location.'</p></div><div class="project-thumbnail"><a href="'.$project_url.'" class="project_link"><img src="'.$project_thumbnail.'" class="img-fluid w-100"/></a></div></div></div>';
+                                } 
+                                wp_reset_postdata();
+                                ?>
+                                </div>
+                                <div class="fp-bottom d-flex flex-row justify-content-between mt-4 mt-md-5">
+                                    <div class="feature-project-pagination"></div>
+                                    <?php if( $read_more ) {
+                                        echo '<div class="btn-wrapper"><a href="'.$read_more['url'].'"><span>'.$read_more['title'].'</span></a></div>';
+                                    } ?>
+                                </div>
+                            </div>
+                        </div>
+                    <?php
+                    }
+                    else {
+                        echo '<p class="fw-light text-white">There is no <strong class="fw-medium">Featured Project</strong> at the moment!</p>';
+                    }
+                    ?>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
+<?php
+$working = get_field('working');
+$working_field_object = get_field_object('working');
+$field_key_working = $working_field_object['key']; 
+$clean_field_key_working = str_replace('field_', '', $field_key_working);
+$unique_class_working = 'section-'.$clean_field_key_working.'-'.$page_id;
+$working_ta = $working['text_alignment'];
+$working_ta_mobile = $working['text_alignment_mobile'];
+$working_alignments = $working_ta_mobile.' '.$working_ta;
+$working_title = $working['section_title'];
+$working_divider = $working['divider'];
+?>
+<section class="<?php echo $unique_class_working;?>" id="working">
+    <div class="container-fluid">
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-10 col-xl-8 px-0 d-flex flex-column flex-section-row flex-row-insights">
+                <div class="d-flex flex-wrap justify-content-center justify-content-md-start align-items-md-start">
+                    <div class="col-12 mb-4 mb-md-0">
+                        <div class="text-editor <?php echo $working_alignments;?>">
+                            <?php echo $working_title;?>
+                        </div>
+                        <?php
+                        if( $working_divider ) {
+                            echo mldesign_divider();
+                        }
+                        ?>
+                    </div>
+                </div>
+                <div class="d-flex flex-wrap justify-content-center justify-content-md-start align-items-md-start">
+                    <div class="col-12 mb-4 mb-md-0">
+                        <div class="working-iframe">
+                        <?php
+                        if( $working['video_thumbnail'] ) {
+                            if( $working['video_link'] ) {
+                                $fancybox_link = $working['video_link'];
+                            }
+                            else {
+                                $fancybox_link = $working['video_thumbnail']['url'];
+                            }
+                            echo '<a href="'.$fancybox_link.'" class="fancybox">';
+                            echo '<img src="'.$working['video_thumbnail']['url'].'" class="img-fluid w-100"/>';
+                            echo '</a>';
+                        }
+                        ?>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
 
 <?php
@@ -130,6 +261,7 @@ $about_title = $insights['section_title'];
 $orderby = $insights['sort_by'];
 $order = $insights['order'];
 $insights_cta = $insights['call_to_action'];
+$insights_divider = $insights['divider'];
 ?>
 <section class="<?php echo $unique_class_insights;?>" id="insights">
     <div class="container-fluid">
@@ -140,6 +272,11 @@ $insights_cta = $insights['call_to_action'];
                         <div class="text-editor <?php echo $about_alignments;?>">
                             <?php echo $about_title;?>
                         </div>
+                        <?php
+                        if( $insights_divider ) {
+                            echo mldesign_divider();
+                        }
+                        ?>
                     </div>
                 </div>
                 <div class="d-flex flex-wrap justify-content-center justify-content-md-start align-items-md-start">

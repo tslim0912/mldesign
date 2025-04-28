@@ -1,8 +1,11 @@
 #about {
     padding: 100px 0;
 }
+#featured-project, #working {
+    padding: 50px 0;
+}
 #insights {
-    padding-bottom: 70px;
+    padding: 50px 0 70px;
 }
 @media (max-width: 767px) {}
 @media (min-width: 768px) {}

@@ -98,6 +98,9 @@ section > div[class*='container'] {
     font-size: 12px;
     line-height: 15px;
 }
+.text-editor {
+    margin-bottom: 30px;
+}
 .text-editor h2, .text-editor h3, .text-editor h4, .text-editor h5, .text-editor h6 {
     font-weight: var(--fw-light);
 }

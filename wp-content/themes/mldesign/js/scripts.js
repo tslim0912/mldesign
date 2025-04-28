@@ -8,6 +8,8 @@ $(document).ready(function() {
         });
     });
 
+    $('a.fancybox').fancybox();
+
     $(document).on('click', '#masthead .navbar-toggler', function(e) {
         e.preventDefault();
         var $this = $(this);
