@@ -26,6 +26,12 @@
     .listing-insights .list-thumbnail {
         height: 230px;
     }
+    .project-thumbnail {
+        height: 250px;
+    }
+    .fp-bottom {
+        gap: 25px;
+    }
     #colophon {
         padding: 70px 0 30px;
     }

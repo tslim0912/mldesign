@@ -1,15 +1,31 @@
 #about {
     padding: 100px 0;
 }
-#featured-project, #working {
+#featured-project, #working, #legacy {
     padding: 50px 0;
 }
 #insights {
     padding: 50px 0 70px;
 }
+.global-map g[id] {
+    cursor: pointer;
+}
+.global-map g[id]:hover > polygon:not([id^="Dot_"]), .global-map g[id]:hover > path:not([id^="Dot_"]) {
+    fill: #939598;
+}
+.global-map g#Country_China:hover > path:not([id^="Dot_"]) {
+    fill: #656668;
+}
 @media (max-width: 767px) {}
 @media (min-width: 768px) {}
-@media (min-width: 1200px) {}
+@media (min-width: 1200px) {
+    #legacy .text-editor p {
+        max-width: 55%;
+        margin: 0 auto;
+    }
+}
+@media (min-width: 1400px) {
+}
 @media (min-width: 1900px) {
     #about {
         padding: 150px 0;

@@ -129,7 +129,7 @@ $project_divider = $project['divider'];
         <div class="row justify-content-center">
             <div class="col-12 col-md-10 col-xl-8 px-0 d-flex flex-column flex-section-row flex-row-insights">
                 <div class="d-flex flex-wrap justify-content-center justify-content-md-start align-items-md-start">
-                    <div class="col-12 mb-4 mb-md-0">
+                    <div class="col-12 px-4 mb-4 mb-md-0">
                         <div class="text-editor <?php echo $project_alignments;?>">
                             <?php echo $project_title;?>
                         </div>
@@ -141,7 +141,7 @@ $project_divider = $project['divider'];
                     </div>
                 </div>
                 <div class="d-flex flex-wrap justify-content-center justify-content-md-start align-items-md-start">
-                    <div class="col-12 mb-4 mb-md-0">
+                    <div class="col-12 px-4 mb-4 mb-md-0">
                     <?php
                     $ppp = $project['posts_per_page'];
                     $read_more = $project['read_more'];
@@ -169,7 +169,7 @@ $project_divider = $project['divider'];
                                     else {
                                         $project_thumbnail = mldesign_fallback_image_url();
                                     }
-                                    echo '<div class="swiper-slide project-item"><div class="project-item-inner"><div class="project-meta mb-4"><h5 class="project-title mb-2">'.$project_title.'</h5><p class="project-location">'.$project_location.'</p></div><div class="project-thumbnail"><a href="'.$project_url.'" class="project_link"><img src="'.$project_thumbnail.'" class="img-fluid w-100"/></a></div></div></div>';
+                                    echo '<div class="swiper-slide project-item"><div class="project-item-inner"><div class="project-meta mb-4"><h5 class="project-title fw-regular text-white text-uppercase mb-2"><a href="'.$project_url.'" class="project_link">'.$project_title.'</a></h5><p class="project-location text-grey">'.$project_location.'</p></div><div class="project-thumbnail post-thumbnail"><a href="'.$project_url.'" class="project_link"><img src="'.$project_thumbnail.'" class="img-fluid w-100"/></a></div></div></div>';
                                 } 
                                 wp_reset_postdata();
                                 ?>
@@ -196,6 +196,44 @@ $project_divider = $project['divider'];
 </section>
 
 <?php
+$legacy = get_field('legacy');
+$legacy_field_object = get_field_object('legacy');
+$field_key_legacy = $legacy_field_object['key']; 
+$clean_field_key_legacy = str_replace('field_', '', $field_key_legacy);
+$unique_class_legacy = 'section-'.$clean_field_key_legacy.'-'.$page_id;
+$legacy_ta = $legacy['text_alignment'];
+$legacy_ta_mobile = $legacy['text_alignment_mobile'];
+$legacy_alignments = $legacy_ta_mobile.' '.$legacy_ta;
+$legacy_title = $legacy['section_title'];
+$legacy_divider = $legacy['divider'];
+?>
+<section class="<?php echo $unique_class_legacy;?>" id="legacy">
+    <div class="container-fluid">
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-10 col-xl-8 px-0 d-flex flex-column flex-section-row flex-row-insights">
+                <div class="d-flex flex-wrap justify-content-center justify-content-md-start align-items-md-start">
+                    <div class="col-12 px-4 mb-4 mb-md-0">
+                        <div class="text-editor <?php echo $legacy_alignments;?>">
+                            <?php echo $legacy_title;?>
+                        </div>
+                        <?php
+                        if( $legacy_divider ) {
+                            echo mldesign_divider();
+                        }
+                        ?>
+                    </div>
+                </div>
+                <div class="d-flex flex-wrap justify-content-center justify-content-md-start align-items-md-start">
+                    <div class="col-12 mb-4 mb-md-0">
+                        <div class="global-map" id="global-map"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<?php
 $working = get_field('working');
 $working_field_object = get_field_object('working');
 $field_key_working = $working_field_object['key']; 
@@ -212,7 +250,7 @@ $working_divider = $working['divider'];
         <div class="row justify-content-center">
             <div class="col-12 col-md-10 col-xl-8 px-0 d-flex flex-column flex-section-row flex-row-insights">
                 <div class="d-flex flex-wrap justify-content-center justify-content-md-start align-items-md-start">
-                    <div class="col-12 mb-4 mb-md-0">
+                    <div class="col-12 px-4 mb-4 mb-md-0">
                         <div class="text-editor <?php echo $working_alignments;?>">
                             <?php echo $working_title;?>
                         </div>
@@ -224,7 +262,7 @@ $working_divider = $working['divider'];
                     </div>
                 </div>
                 <div class="d-flex flex-wrap justify-content-center justify-content-md-start align-items-md-start">
-                    <div class="col-12 mb-4 mb-md-0">
+                    <div class="col-12 px-4 mb-4 mb-md-0">
                         <div class="working-iframe">
                         <?php
                         if( $working['video_thumbnail'] ) {
@@ -268,7 +306,7 @@ $insights_divider = $insights['divider'];
         <div class="row justify-content-center">
             <div class="col-12 col-md-10 col-xl-8 px-0 d-flex flex-column flex-section-row flex-row-insights">
                 <div class="d-flex flex-wrap justify-content-center justify-content-md-start align-items-md-start">
-                    <div class="col-12 mb-4 mb-md-0">
+                    <div class="col-12 px-4 mb-4 mb-md-0">
                         <div class="text-editor <?php echo $about_alignments;?>">
                             <?php echo $about_title;?>
                         </div>
@@ -280,7 +318,7 @@ $insights_divider = $insights['divider'];
                     </div>
                 </div>
                 <div class="d-flex flex-wrap justify-content-center justify-content-md-start align-items-md-start">
-                    <div class="col-12 mb-4 mb-md-0">
+                    <div class="col-12 px-4 mb-4 mb-md-0">
                         <div class="listing-insights">
                             <div class="listing-body">
                                 <div class="listing-body-inner">

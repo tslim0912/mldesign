@@ -20,6 +20,27 @@ $(document).ready(function() {
             $this.addClass('is-active');
         }
     });
+
+    var $featureProject;
+    if( $('#featured-project-swiper')[0] ) {
+        $featureProject = new Swiper('#featured-project-swiper', {
+            slidesPerView: 1,
+            effect: "fade",
+            fadeEffect: {
+                crossFade: true
+            },
+            loop: true,
+            autoplay: {
+                delay: 9000,
+                disableOnInteraction: false,
+            },
+            speed: 750,
+            pagination: {
+                el: '.feature-project-pagination',
+                clickable: true,
+            }
+        });
+    }
     
     $('#copyright_year').each(function() {
         var $this = $(this),

@@ -67,6 +67,25 @@ h1, h2, h3, h4, h5, h6, p, a, span, li, input, textarea, select {
     margin-bottom: 0;
     color: var(--primary-white);
 }
+h1 > a, h1 > span, h2 > a, h2 > span, h3 > a, h3 > span, h4 > a, h4 > span, h5 > a, h5 > span, h6 > a, h6 > span, a > span, button > span {
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    font-weight: inherit;
+    color: inherit;
+}
+a:hover {
+    color: var(--primary-grey)
+}
+h1 > a, h2 > a, h3 > a, h4 > a, h5 > a, h6 > a {
+    text-decoration: none;
+}
+.text-white {
+    color: var(--primary-white);
+}
+.text-grey {
+    color: var(--primary-grey);
+}
 .font-KozGoPr6N {
     font-family: var(--font-KozGoPr6N);
 }
