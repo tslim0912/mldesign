@@ -16,6 +16,9 @@
     display: block;
     width: 100%;
 }
+section {
+    padding: 100px 0;
+}
 .simpleParallax, .parallax-image {
     position: absolute;
     top: 0;
