@@ -14,7 +14,7 @@
 	<footer id="colophon" class="site-footer">
         <div class="container-fluid">
             <div class="row justify-content-center">
-                <div class="col-12 col-md-10 col-xl-9 px-4 px-md-0">
+                <div class="col-12 col-md-12 col-xl-9 px-4 px-xl-0">
                     <div class="footer-columns">
                     <?php 
                     if ( is_active_sidebar( 'footer-columns' ) ) : 

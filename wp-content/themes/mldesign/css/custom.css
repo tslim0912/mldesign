@@ -4,9 +4,12 @@
     height: 100%;
     left: 0;
     top: 0;
+    background-position: cover;
+    background-repeat: no-repeat;
+    background-position: center top;
     z-index: 0;
 }
-.backdrop picture, .backdrop img {
+.backdrop picture, .backdrop img, .text-editor-bg img{
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -18,6 +21,9 @@
 }
 section {
     padding: 100px 0;
+}
+.page-intro {
+    padding: 0;
 }
 .simpleParallax, .parallax-image {
     position: absolute;
@@ -184,4 +190,7 @@ section > div[class*='container'] {
 }
 .feature-project-pagination .swiper-pagination-bullet.swiper-pagination-bullet-active::before, .feature-project-pagination .swiper-pagination-bullet:hover::before {
     color: var(--primary-white)
+}
+#philosophy-accordion .accordion-button::after {
+    display: none;
 }

@@ -31,7 +31,7 @@ $text_alignment_mobile = $intro['text_alignment_mobile'];
 $caption_alignments = $text_alignment_mobile.' '.$text_alignment;
 $intro_content = $intro['content'];
 ?>
-<section class="<?php echo $unique_class;?>" id="introduction">
+<section class="page-intro <?php echo $unique_class;?>" id="introduction">
     <style type="text/css">
         .<?php echo $unique_class;?> .backdrop {
             background-image: url(<?php echo $bg_intro;?>);
@@ -45,7 +45,7 @@ $intro_content = $intro['content'];
     <div class="<?php echo $backdrop;?>"></div>
     <div class="container-fluid">
         <div class="row justify-content-center">
-            <div class="col-12 col-md-10 col-xl-8 px-0">
+            <div class="col-12 col-md-12 col-xl-8 px-0">
                 <div class="d-flex flex-wrap intro-caption-row <?php echo $row_alignments;?> align-items-start align-items-md-center">
                     <div class="intro-caption <?php echo $caption_alignments;?> px-4">
                         <?php echo $intro_content;?>
@@ -71,9 +71,9 @@ $column_link = $about['column_link'];
 <section class="<?php echo $unique_class_about;?>" id="about">
     <div class="container-fluid">
         <div class="row justify-content-center">
-            <div class="col-12 col-md-10 col-xl-8 px-0 d-flex flex-column flex-section-row flex-row-about">
+            <div class="col-12 col-md-12 col-xl-8 px-0 d-flex flex-column flex-section-row flex-row-about">
                 <div class="d-flex flex-wrap justify-content-center justify-content-md-start align-items-md-start">
-                    <div class="col-12 col-md-6 px-4 ps-md-0 col-left mb-4 mb-md-0">
+                    <div class="col-12 col-md-6 px-4 ps-xl-0 col-left mb-4 mb-md-0">
                         <div class="text-editor">
                         <?php echo $column_1;?>
                         </div>
@@ -88,7 +88,7 @@ $column_link = $about['column_link'];
                 <?php
                 if( $column_image ) {
                 ?>
-                    <div class="col-12 col-md-9 px-4 px-md-0">
+                    <div class="col-12 col-md-9 px-4 px-xl-0">
                         <div class="img-wrapper"><img src="<?php echo $column_image['url'];?>" class="img-fluid w-100"/></div>
                     </div>
                 <?php
@@ -98,7 +98,7 @@ $column_link = $about['column_link'];
                     $link_title = $column_link['title'];
                     $link_target = $column_link['target'] ? $column_link['target'] : '_self';
                 ?>
-                    <div class="col-12 col-md-3 px-4 ps-md-0">
+                    <div class="col-12 col-md-3 px-4 ps-xl-0">
                         <div class="btn-wrapper">
                             <a class="btn btn-outline text-white p-0" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>"><?php echo esc_html( $link_title ); ?></a>
                         </div>
@@ -127,7 +127,7 @@ $project_divider = $project['divider'];
 <section class="<?php echo $unique_class_project;?>" id="featured-project">
     <div class="container-fluid">
         <div class="row justify-content-center">
-            <div class="col-12 col-md-10 col-xl-8 px-0 d-flex flex-column flex-section-row flex-row-insights">
+            <div class="col-12 col-md-12 col-xl-8 px-0 d-flex flex-column flex-section-row flex-row-insights">
                 <div class="d-flex flex-wrap justify-content-center justify-content-md-start align-items-md-start">
                     <div class="col-12 px-4 mb-4 mb-md-0">
                         <div class="text-editor <?php echo $project_alignments;?>">
@@ -210,7 +210,7 @@ $legacy_divider = $legacy['divider'];
 <section class="<?php echo $unique_class_legacy;?>" id="legacy">
     <div class="container-fluid">
         <div class="row justify-content-center">
-            <div class="col-12 col-md-10 col-xl-8 px-0 d-flex flex-column flex-section-row flex-row-insights">
+            <div class="col-12 col-md-12 col-xl-8 px-0 d-flex flex-column flex-section-row flex-row-insights">
                 <div class="d-flex flex-wrap justify-content-center justify-content-md-start align-items-md-start">
                     <div class="col-12 px-4 mb-4 mb-md-0">
                         <div class="text-editor <?php echo $legacy_alignments;?>">
@@ -248,7 +248,7 @@ $working_divider = $working['divider'];
 <section class="<?php echo $unique_class_working;?>" id="working">
     <div class="container-fluid">
         <div class="row justify-content-center">
-            <div class="col-12 col-md-10 col-xl-8 px-0 d-flex flex-column flex-section-row flex-row-insights">
+            <div class="col-12 col-md-12 col-xl-8 px-0 d-flex flex-column flex-section-row flex-row-insights">
                 <div class="d-flex flex-wrap justify-content-center justify-content-md-start align-items-md-start">
                     <div class="col-12 px-4 mb-4 mb-md-0">
                         <div class="text-editor <?php echo $working_alignments;?>">
@@ -304,7 +304,7 @@ $insights_divider = $insights['divider'];
 <section class="<?php echo $unique_class_insights;?>" id="insights">
     <div class="container-fluid">
         <div class="row justify-content-center">
-            <div class="col-12 col-md-10 col-xl-8 px-0 d-flex flex-column flex-section-row flex-row-insights">
+            <div class="col-12 col-md-12 col-xl-8 px-0 d-flex flex-column flex-section-row flex-row-insights">
                 <div class="d-flex flex-wrap justify-content-center justify-content-md-start align-items-md-start">
                     <div class="col-12 px-4 mb-4 mb-md-0">
                         <div class="text-editor <?php echo $about_alignments;?>">

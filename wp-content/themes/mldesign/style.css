@@ -119,8 +119,18 @@ h1 > a, h2 > a, h3 > a, h4 > a, h5 > a, h6 > a {
 .ms-auto, .mx-auto {
     margin-left: auto;
 }
+.h-auto {
+    height: auto;
+}
+.h-100 {
+    height: 100%;
+}
 .btn {
     position: relative;
+}
+.btn, .btn:hover, .btn:focus, .btn:visited, .accordion-button, .accordion-button:hover, .accordion-button:focus, .accordion-button:visited {
+    box-shadow: none;
+    border: none;
 }
 .btn.btn-outline {
     padding: 0;
@@ -299,4 +309,19 @@ h1 > a, h2 > a, h3 > a, h4 > a, h5 > a, h6 > a {
 }
 .footer-columns .wp-block-column .wp-block-image figure {
     max-width: 320px;
+}
+.philosophy-accordion .accordion-item {
+    border-bottom: 1px solid var(--primary-white);
+}
+.accordion-button {
+    color: var(--primary-grey);
+    font-size: 18px;
+    line-height: 21px;
+    letter-spacing: 2px;
+}
+.accordion-button:hover, .accordion-button.active, .accordion-button:not(.collapsed) {
+    color: var(--primary-white);
+}
+#our-philosophy .divider+.text-editor {
+    padding-top: 30px;
 }
