@@ -203,6 +203,17 @@ function mldesign_scripts() {
 			'options' => $options,
 		));
 	}
+    if( is_archive() ) {
+        if( is_post_type_archive('works') ) {
+            wp_enqueue_script( 'archive-works', get_template_directory_uri() . '/js/archive-works.js', array(), _S_VERSION, true );
+            $total_works = wp_count_posts('works')->publish;
+            wp_localize_script( 'scripts', 'global', array(
+                'ajax_url' => admin_url('admin-ajax.php'),
+                'nonce' => wp_create_nonce('mldesign_archive_works_nonce'),
+                'total_works' => $total_works,
+            ));
+        }
+    }
 }
 add_action( 'wp_enqueue_scripts', 'mldesign_scripts' );
 

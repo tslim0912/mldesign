@@ -1,4 +1,8 @@
 $(document).ready(function() {
+    mldesign_body_scrolled();
+    $(window).bind('scroll', function() {
+        mldesign_body_scrolled();
+    });
     $('.parallax-image').each(function () {
         new simpleParallax(this, {
             scale: 1.5,
@@ -52,4 +56,14 @@ $(document).ready(function() {
             }
         }
     });
+
+    function mldesign_body_scrolled() {
+        var scrollTop = $(window).scrollTop();
+        if( scrollTop >  70 ) {
+            $('body').addClass('scrolled');
+        }
+        else {
+            $('body').removeClass('scrolled');
+        }
+    }
 });

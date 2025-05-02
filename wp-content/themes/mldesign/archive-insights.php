@@ -13,7 +13,7 @@ get_header();
         <section class="listing-page listing-insights">
             <div class="container-fluid">
                 <div class="row justify-content-center">
-                    <div class="col-12 col-md-11 col-xl-9 px-4 px-md-0">
+                    <div class="col-12 col-md-11 col-xl-8 px-4 px-xl-0">
                         <div class="listing-inner d-flex flex-row flex-wrap justify-content-between">
                             <div class="listing-header w-100">
                                 <h2 class="font-RedHatDisplay fw-medium text-uppercase">Insights</h2>

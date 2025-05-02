@@ -1,4 +1,7 @@
 @media (max-width: 767px) {
+    .page-template-page-contact .site-main, .post-type-archive-insights .site-main, .post-type-archive-awards .site-main, .post-type-archive-works .site-main, .post-type-archive-accomplishments .site-main {
+        padding-top: 65px;
+    }
     .navbar {
         padding: 15px 0;
     }
@@ -41,6 +44,9 @@
     .footer-columns .wp-block-columns {
         gap: 60px;
     }
+    .listing-page .listing-header {
+        padding-top: 0;
+    }
 }
 @media (min-width: 768px) {
     .h-md-auto {
@@ -63,6 +69,9 @@
     }
 }
 @media (min-width: 768px) and (max-width: 1199px) {
+    .page-template-page-contact .site-main, .post-type-archive-insights .site-main, .post-type-archive-awards .site-main, .post-type-archive-works .site-main, .post-type-archive-accomplishments .site-main {
+        padding-top: 85px;
+    }
     .navbar {
         padding: 20px 0;
     }
@@ -107,6 +116,9 @@
     }
 }
 @media (min-width: 1200px) {
+    .page-template-page-contact .site-main, .post-type-archive-insights .site-main, .post-type-archive-awards .site-main, .post-type-archive-works .site-main, .post-type-archive-accomplishments .site-main {
+        padding-top: 85px;
+    }
     .navbar {
         padding-top: 30px;
         padding-bottom: 30px;
@@ -169,6 +181,9 @@
     }
     .navbar .navbar-nav.navbar-breakpoint-2 .nav-item:nth-child(-n+2), .navbar .navbar-nav.navbar-breakpoint-3 .nav-item:nth-child(-n+3) {
         margin-right: 50px;
+    }
+    .input-control, input, input.input-control, textarea, textarea.input-control, select, select.input-control {
+        padding: 20px 0;
     }
 }
 @media (min-width: 1900px) {

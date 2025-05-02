@@ -177,6 +177,10 @@ h1 > a, h2 > a, h3 > a, h4 > a, h5 > a, h6 > a {
     width: 100%;
     z-index: 101;
     background: linear-gradient(0deg, transparent, rgba(0,0,0,0.4) );
+    transition: all 0.3s ease;
+}
+body.scrolled #masthead {
+    background: var(--primary-black);
 }
 .navbar .navbar-inner {
     display: flex;
@@ -233,8 +237,57 @@ h1 > a, h2 > a, h3 > a, h4 > a, h5 > a, h6 > a {
 .listing-page {
     padding: 50px 0;
 }
-.listing-page .listing-header {
+.listing-page.listing-awards {
+    padding-top: 30px;
+}
+.listing-page.listing-awards .listing-header {
     padding-top: 20px;
+}
+.country-list .country-name {
+    color: var(--primary-white);
+}
+form label, .wpcf7-form label {
+    margin-bottom: 0;
+}
+.input-control, input, input.input-control, textarea, textarea.input-control, select, select.input-control, .intl-tel-input .country-list {
+    background: var(--primary-black);
+}
+.input-control, input, input.input-control, textarea, textarea.input-control, select, select.input-control {
+    display: block;
+    width: 100%;
+    padding: 16px 0px;
+    border: none;
+    outline: none;
+    box-shadow: none;
+    border-bottom: 1px solid var(--primary-white);
+    resize: none;
+}
+.wp-form-row {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    gap: 30px;
+}
+.wp-form-row.wp-form-fields {
+    margin-bottom: 30px;
+}
+.wp-form-group, .wp-form-group label {
+    display: block;
+    width: 100%;
+}
+.wpcf7-form button[type="submit"], .wpcf7-form .btn.btn-submit {
+    padding: 0;
+    color: #fff;
+}
+.wpcf7-form button[type="submit"]::before, .wpcf7-form .btn.btn-submit::before {
+    content: '';
+    display: block;
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    background: var(--primary-white);
+    width: 100%;
+    height: 1px;
 }
 #colophon {
     padding: 70px 0 110px;
@@ -282,7 +335,6 @@ h1 > a, h2 > a, h3 > a, h4 > a, h5 > a, h6 > a {
     background: var(--primary-white);
     transform: translateY(-50%);
 }
-
 #colophon .wp-block-buttons .wp-block-button::after {
     height: 3px;
     width: 50%;

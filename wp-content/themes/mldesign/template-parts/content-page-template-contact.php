@@ -13,12 +13,12 @@ $form_shortcode = $contact['form_shortcode'];
         <div class="row justify-content-center">
             <div class="col-12 col-md-10 col-xl-8 px-0 d-flex flex-column flex-section-row flex-row-contact">
                 <div class="d-flex flex-wrap justify-content-center justify-content-md-start align-items-md-start">
-                    <div class="col-12 col-md-6 px-4 mb-4 mb-md-0">
+                    <div class="col-12 col-md-5 col-xxl-6 px-4 px-xxl-0 mb-0">
                         <div class="text-editor">
                             <?php echo $column_1;?>
                         </div>
                     </div>
-                    <div class="col-12 col-md-6 px-4 ">
+                    <div class="col-12 col-md-7 col-xxl-6 px-4 px-xxl-0">
                         <?php if( $column_2) { ?>
                         <div class="text-editor">
                             <?php echo $column_2;?>
