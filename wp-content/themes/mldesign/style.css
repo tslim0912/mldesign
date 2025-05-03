@@ -54,6 +54,7 @@ html, body {
     font-family: var(--font-RedHatDisplay);
     font-size: 14px;
     line-height: 20px;
+    letter-spacing: 2px;
 }
 #page {
     display: flex;
@@ -149,6 +150,23 @@ h1 > a, h2 > a, h3 > a, h4 > a, h5 > a, h6 > a {
 .btn:hover {
     opacity: 0.85;
 }
+.btn.btn-box {
+    padding: 16px 20px;
+    border: 1px solid var(--primary-white);
+    color: var(--primary-white);
+    line-height: 1;
+    border-radius: 0;
+}
+.btn.btn-box.active {
+    pointer-events: none;
+}
+.btn.btn-box.active, .btn.btn-box:hover {
+    background: var(--primary-white);
+    color: var(--primary-black);
+}
+.btn.btn-box:hover {
+    opacity: 0.85;
+}
 .divider {
     position: relative;
     width: 100%;
@@ -233,6 +251,16 @@ body.scrolled #masthead {
     border: none;
     outline: none;
     box-shadow: none;
+}
+.archive-title sup, .navbar .nav-item > a > sup {
+    font-size: 12px;
+    position: absolute;
+    left: 100%;
+    top: 10px;
+    transform: translateX(3px);
+}
+.navbar .nav-item > a > sup {
+    top: 4px;
 }
 .listing-page {
     padding: 50px 0;
@@ -369,11 +397,39 @@ form label, .wpcf7-form label {
     color: var(--primary-grey);
     font-size: 18px;
     line-height: 21px;
-    letter-spacing: 2px;
 }
 .accordion-button:hover, .accordion-button.active, .accordion-button:not(.collapsed) {
     color: var(--primary-white);
 }
 #our-philosophy .divider+.text-editor {
     padding-top: 30px;
+}
+.loading {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.35);
+    z-index: 2;
+}
+.loader {
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 40px;
+    height: 40px;
+    --c:no-repeat linear-gradient(var(--primary-black) 0 0);
+    background: var(--c),var(--c),var(--c),var(--c);
+    background-size: 21px 21px;
+    animation: l5 1.5s infinite cubic-bezier(0.3,1,0,1);
+}
+@keyframes l5 {
+   0%   {background-position: 0    0,100% 0   ,100% 100%,0 100%}
+   33%  {background-position: 0    0,100% 0   ,100% 100%,0 100%;width:60px;height: 60px}
+   66%  {background-position: 100% 0,100% 100%,0    100%,0 0   ;width:60px;height: 60px}
+   100% {background-position: 100% 0,100% 100%,0    100%,0 0   }
 }

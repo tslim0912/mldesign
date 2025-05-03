@@ -15,6 +15,10 @@
         top: 20px;
         left: 0;
     }
+    /* .listing-body-inner {
+        max-width: 300px;
+        margin: 0 auto;
+    } */
 }
 @media (min-width: 768px) {
     .listing-page.listing-awards .listing-header {
@@ -60,5 +64,4 @@
     .listing-page.listing-awards .listing-item-inner {
         gap: 40px;
     }
-
 }

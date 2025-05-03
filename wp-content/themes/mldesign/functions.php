@@ -157,10 +157,6 @@ function mldesign_scripts() {
             wp_enqueue_style( 'archive-insights', get_template_directory_uri() . '/css/archive-insights.css', [], _S_VERSION);
         }
     }
-    wp_enqueue_style( 'media-query', get_template_directory_uri() . '/css/media.css', [], _S_VERSION);
-    if( is_archive() ) {
-        wp_enqueue_style( 'archive-media-query', get_template_directory_uri() . '/css/archive-media.css', [], _S_VERSION);
-    }
 
 	wp_enqueue_script( 'jQuery', 'https://code.jquery.com/jquery-3.7.1.min.js', [], null, true);
 	wp_enqueue_script( 'simpleParallax', get_template_directory_uri() . '/js/simpleParallax.min.js', [], null, true);
@@ -188,6 +184,7 @@ function mldesign_scripts() {
         'get_posts' => $total_posts,
         'copyright_year' => date("Y"),
     ));
+    
 	if( is_page_template('page-home.php') ) {
 		$options = array();
 		$option_fields = get_field('global_map', 'option');
@@ -203,16 +200,37 @@ function mldesign_scripts() {
 			'options' => $options,
 		));
 	}
+
+    if( is_page_template('page-works.php') || is_post_type_archive('works') ) {
+        wp_enqueue_style( 'archive-works', get_template_directory_uri() . '/css/archive-works.css', array(), _S_VERSION, 'all' );
+        wp_enqueue_script( 'archive-works', get_template_directory_uri() . '/js/archive-works.js', array(), _S_VERSION, true );
+        $total_works = wp_count_posts('works')->publish;
+        wp_localize_script( 'archive-works', 'archive', array(
+            'ajax_url' => admin_url('admin-ajax.php'),
+            'nonce' => wp_create_nonce('mldesign_archive_works_nonce'),
+            'total_works' => $total_works,
+        ));
+    }
+
+    if( is_singular() ) {
+        wp_enqueue_style( 'single-style', get_template_directory_uri() . '/css/single-style.css', array(), _S_VERSION, 'all' );
+    }
+
+    if( is_singular('insights') ) {
+        wp_enqueue_style( 'single-insights', get_template_directory_uri() . '/css/single-insights.css', array(), _S_VERSION, 'all' );
+    }
+
+    if( is_singular('works') ) {
+        wp_enqueue_style( 'single-works', get_template_directory_uri() . '/css/single-works.css', array(), _S_VERSION, 'all' );
+    }
+
+    wp_enqueue_style( 'media-query', get_template_directory_uri() . '/css/media.css', [], _S_VERSION);
     if( is_archive() ) {
-        if( is_post_type_archive('works') ) {
-            wp_enqueue_script( 'archive-works', get_template_directory_uri() . '/js/archive-works.js', array(), _S_VERSION, true );
-            $total_works = wp_count_posts('works')->publish;
-            wp_localize_script( 'scripts', 'global', array(
-                'ajax_url' => admin_url('admin-ajax.php'),
-                'nonce' => wp_create_nonce('mldesign_archive_works_nonce'),
-                'total_works' => $total_works,
-            ));
-        }
+        wp_enqueue_style( 'archive-media-query', get_template_directory_uri() . '/css/archive-media.css', [], _S_VERSION);
+    }
+
+    if( is_singular() ) {
+        wp_enqueue_style( 'single-media-query', get_template_directory_uri() . '/css/single-media.css', [], _S_VERSION);
     }
 }
 add_action( 'wp_enqueue_scripts', 'mldesign_scripts' );
@@ -244,8 +262,21 @@ function custom_awards_posts_per_page( $query ) {
     if ( !is_admin() && $query->is_main_query() && is_post_type_archive( 'awards' ) ) {
         $query->set( 'posts_per_page', -1 );
     }
+    if ( !is_admin() && $query->is_main_query() && is_post_type_archive('works')) {
+        $query->set('posts_per_page', 2);
+    }
+
 }
 add_action( 'pre_get_posts', 'custom_awards_posts_per_page' );
+
+add_filter('redirect_canonical', function ($redirect_url, $requested_url) {
+    // Prevent redirect if 'paged' is set via query string
+    if ( is_page_template('page-works.php') && isset($_GET['paged'])) {
+        return false;
+    }
+    return $redirect_url;
+}, 10, 2);
+
 
 /**
  * Implement the Custom Header feature.
@@ -310,3 +341,106 @@ function mldesign_fallback_image_url() {
 function mldesign_divider() {
 	return '<div class="divider"></div>';
 }
+
+function mldesign_filtering_works() {
+    check_ajax_referer('mldesign_archive_works_nonce', 'nonce');
+    $response = array();
+    $filter = isset($_POST['filter']) ? sanitize_text_field($_POST['filter']) : '';
+    $paged = isset($_POST['paged']) ? $_POST['paged'] : 1;
+    $args = array(
+        'post_type' => 'works',
+        'post_status' => 'publish',
+        'posts_per_page' => 1,
+        'paged' => $paged,
+        'orderby' => 'date',
+        'order' => 'desc',
+    );
+    if(!empty($filter) && $filter !== 'all') {
+        $args['tax_query'] = [
+            [
+                'taxonomy' => 'work-types',
+                'field'    => 'slug',
+                'terms'    => $filter,
+            ]
+        ];
+    }
+    $works = new WP_Query($args);
+
+    $i=1;
+    if ($works->have_posts()) {
+        ob_start();
+        while( $works->have_posts() ) {
+            $works->the_post();
+            set_query_var( 'loop_index', $i );
+            get_template_part( 'template-parts/archive-template', 'works' );
+            $i++;
+        }
+        $html = ob_get_clean();
+        wp_reset_postdata();
+        
+
+        $response['status'] = 1000;
+        $response['message'] = "Successful!";
+        $response['html'] = $html;
+
+        $big = 999999999;
+
+        $pagination = paginate_links([
+            'base'      => str_replace($big, '%#%', esc_url(get_pagenum_link($big))),
+            'format'    => '',
+            'current'   => $paged,
+            'total'     => $works->max_num_pages,
+            'type'      => 'array',
+            'prev_text' => '<span class="mld-arrow arrow-prev"></span>',
+            'next_text' => '<span class="mld-arrow arrow-next"></span>',
+        ]);
+
+        ob_start();
+        if (!empty($pagination)) {
+            echo '<div class="archive-pagination">';
+            foreach ($pagination as $link) {
+                $dom = new DOMDocument();
+                @$dom->loadHTML($link);
+                $anchor = $dom->getElementsByTagName('a')->item(0);
+        
+                if ($anchor) {
+                    $class = $anchor->getAttribute('class');
+                    $text = trim($anchor->nodeValue);
+        
+                    if (strpos($class, 'next') !== false) {
+                        $page = $paged + 1;
+                    } elseif (strpos($class, 'prev') !== false) {
+                        $page = max(1, $paged - 1);
+                    } elseif (is_numeric($text)) {
+                        $page = (int)$text;
+                    } else {
+                        $page = 1;
+                    }
+        
+                    echo '<a href="javascript:void(0);" class="' . esc_attr($class) . '" data-paged="' . esc_attr($page) . '">' . esc_html($text) . '</a>';
+                } else {
+                    echo $link;
+                }
+            }
+            echo '</div>';
+        }
+        $paging = ob_get_clean();
+        $pagination = '<div class="archive-pagination">' . $paging . '</div>';
+        $response['pagination'] = $pagination;
+        $response['filter'] = $filter;
+    }
+    else {
+        $response['status'] = 2000;
+        $response['message'] = "There is no Works found!";
+        ob_start();
+        set_query_var( 'post_type', $filter );
+        get_template_part( 'template-parts/archive-template', 'none' );
+        $empty = ob_get_clean();
+        $response['html'] = $empty;
+    }
+
+    echo json_encode($response);
+    wp_die();
+}
+add_action('wp_ajax_mldesign_filtering_works', 'mldesign_filtering_works');
+add_action('wp_ajax_nopriv_mldesign_filtering_works', 'mldesign_filtering_works');

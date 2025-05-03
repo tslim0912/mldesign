@@ -14,6 +14,20 @@ $(document).ready(function() {
 
     $('a.fancybox').fancybox();
 
+    if( global.get_posts ) {
+        var $total_posts = global.get_posts;
+        console.log($total_posts);
+        if( $total_posts.works ) {
+            $('#masthead .navbar .sup.sup-works > a.nav-link').append('<sup>'+$total_posts.works+'</sup>');
+        }
+        if( $total_posts.accomplishments ) {
+            $('#masthead .navbar .sup.sup-accomplishments > a.nav-link').append('<sup>'+$total_posts.accomplishments+'</sup>');
+        }
+        if( $total_posts.insights ) {
+            $('#masthead .navbar .sup.sup-insights > a.nav-link').append('<sup>'+$total_posts.insights+'</sup>');
+        }
+    }
+
     $(document).on('click', '#masthead .navbar-toggler', function(e) {
         e.preventDefault();
         var $this = $(this);

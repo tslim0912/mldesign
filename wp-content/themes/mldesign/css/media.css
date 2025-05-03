@@ -1,5 +1,5 @@
 @media (max-width: 767px) {
-    .page-template-page-contact .site-main, .post-type-archive-insights .site-main, .post-type-archive-awards .site-main, .post-type-archive-works .site-main, .post-type-archive-accomplishments .site-main {
+    .page-template-page-contact .site-main, .post-type-archive-insights .site-main, .post-type-archive-awards .site-main, .post-type-archive-works .site-main, .post-type-archive-accomplishments .site-main, .single .site-main, .page-template-page-works .site-main {
         padding-top: 65px;
     }
     .navbar {
@@ -29,7 +29,7 @@
     .listing-insights .listing-body-inner {
         gap: 50px 25px;
     }
-    .listing-insights .list-thumbnail {
+    .list-thumbnail {
         height: 230px;
     }
     .project-thumbnail {
@@ -46,6 +46,9 @@
     }
     .listing-page .listing-header {
         padding-top: 0;
+    }
+    .listing-page.listing-works .listing-body-inner {
+        gap: 70px 25px;
     }
 }
 @media (min-width: 768px) {
@@ -67,9 +70,12 @@
         width: 100%;
         flex: 1;
     }
+    .listing-page.listing-works .listing-body-inner {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
 @media (min-width: 768px) and (max-width: 1199px) {
-    .page-template-page-contact .site-main, .post-type-archive-insights .site-main, .post-type-archive-awards .site-main, .post-type-archive-works .site-main, .post-type-archive-accomplishments .site-main {
+    .page-template-page-contact .site-main, .post-type-archive-insights .site-main, .post-type-archive-awards .site-main, .post-type-archive-works .site-main, .post-type-archive-accomplishments .site-main, .single .site-main, .page-template-page-works .site-main  {
         padding-top: 85px;
     }
     .navbar {
@@ -115,8 +121,13 @@
         transform: translateY(-50%);
     }
 }
+@media (min-width: 768px) and (max-width: 1199px) and (orientation: landscape) {
+    .listing-page.listing-works .listing-body-inner {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
 @media (min-width: 1200px) {
-    .page-template-page-contact .site-main, .post-type-archive-insights .site-main, .post-type-archive-awards .site-main, .post-type-archive-works .site-main, .post-type-archive-accomplishments .site-main {
+    .page-template-page-contact .site-main, .post-type-archive-insights .site-main, .post-type-archive-awards .site-main, .post-type-archive-works .site-main, .post-type-archive-accomplishments .site-main, .single .site-main, .page-template-page-works .site-main  {
         padding-top: 85px;
     }
     .navbar {
@@ -166,6 +177,10 @@
         font-size: 1.6666667vw;
         line-height: 1.6666667vw;
     }
+    .listing-page.listing-works .listing-body-inner {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 60px 70px;
+    }
 }
 @media (min-width: 1400px) {
     .h-xxl-auto {
@@ -207,6 +222,12 @@
     }
     .flex-section-row {
         gap: 100px;
+    }
+    .listing-page.listing-works .listing-body-inner {
+        gap: 70px 100px;
+    }
+    .listing-page.listing-works .list-thumbnail {
+        height: 520px;
     }
 }
 @media (min-width: 2300px) {

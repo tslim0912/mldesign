@@ -1,11 +1,10 @@
 <?php
-/**
- * The template for displaying archive pages - Works
+/*
+ * Template name: MLD - Works
  *
- * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
- * @package MLDesign
- */
+ *
+*/
 
 $post_type = 'works';
 get_header();
@@ -93,13 +92,12 @@ get_header();
                             if (!empty($pagination)) {
                                 echo '<div class="archive-pagination">';
                                 foreach ($pagination as $link) {
-                                    // Parse page number
                                     $dom = new DOMDocument();
                                     @$dom->loadHTML($link);
                                     $anchor = $dom->getElementsByTagName('a')->item(0);
                             
                                     if ($anchor) {
-                                        $class = $anchor->getAttribute('class'); // may include next/prev
+                                        $class = $anchor->getAttribute('class');
                                         $text = trim($anchor->nodeValue);
                             
                                         // Determine target page number

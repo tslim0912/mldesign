@@ -27,7 +27,7 @@ if( $has_overlay ) {
         <div class="list-col list-col-body d-flex flex-column">
             <div class="list-thumbnail">
             <?php    
-                echo '<a href="'.$permlink.'" class="list-link'.$classes.'">';
+                echo '<a href="'.$permlink.'" class="list-link text-decoration-none'.$classes.'">';
                 if( has_post_thumbnail() ) {
                     echo '<img src="'.get_the_post_thumbnail_url().'" class="img-fluid w-100 h-100"/>';
                 }
@@ -37,7 +37,7 @@ if( $has_overlay ) {
             <div class="list-content">
                 <div class="list-content-row d-flex flex-wrap">
                 <?php
-                echo '<a href="'.$permlink.'" class="list-link">';
+                echo '<a href="'.$permlink.'" class="list-link text-decoration-none">';
                     echo '<p>';
                     if( $display_title ) { echo '<span class="fw-medium text-uppercase">'.$post_title.': </span>'; }
                     echo $excerpt.'</p>';  

@@ -12,4 +12,7 @@ else if ( $post_type == 'works' ) {
 else if ( $post_type == 'accomplishments' ) {
     echo '<div class="listing-item-inner"><div class="list-col list-col-error">There is no Accomplishment found!</div></div>';
 }
+else {
+    echo '<div class="listing-item-inner"><div class="list-col list-col-error">There is no post found!</div></div>';
+}
 ?>

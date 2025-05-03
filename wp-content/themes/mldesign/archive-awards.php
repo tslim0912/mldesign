@@ -16,7 +16,9 @@ get_header();
                     <div class="col-12 col-md-11 col-xl-8 px-4 px-md-0">
                         <div class="listing-inner d-flex flex-row flex-wrap justify-content-between">
                             <div class="listing-header">
-                                <h2 class="font-RedHatDisplay fw-medium text-uppercase">Awards</h2>
+                                <div class="text-editor">
+                                    <h2 class="font-RedHatDisplay fw-medium text-uppercase">Awards</h2>
+                                </div>
                             </div>
                             <div class="listing-body">
                                 <div class="listing-body-inner">

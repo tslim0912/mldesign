@@ -1,0 +1,17 @@
+.ins-thumbnail {
+    height: 420px;
+}
+.ins-thumbnail img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+}
+.single-related-posts {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+.single-row-related {
+    padding-top: 70px;
+}

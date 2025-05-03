@@ -84,24 +84,41 @@ section > div[class*='container'] {
 .list-col.list-col-body {
     gap: 40px;
 }
-.listing-insights .list-thumbnail {
+.list-thumbnail {
     overflow: hidden;
+    background: var(--primary-grey);
 }
-.listing-insights .list-thumbnail a {
+.list-thumbnail a {
     display: block;
 }
-.listing-insights .list-thumbnail a, .listing-insights .list-thumbnail img {
+.list-thumbnail a, .listing-insights .list-thumbnail a, .listing-insights .list-thumbnail img, .single-row-related .list-thumbnail img {
     width: 100%;
     height: 100%;
 }
-.listing-insights .list-thumbnail img {
+.listing-insights .list-thumbnail img, .single-row-related .list-thumbnail img {
     object-fit: cover;
     object-position: center center;
     transform-origin: center center;
     transition: all 0.5s ease;
 }
-.listing-insights .list-thumbnail:hover img {
+.listing-insights .list-thumbnail:hover img, .single-row-related .list-thumbnail:hover img {
     transform: scale(1.15);
+}
+.list-thumbnail a[class*='overlay-']::before {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+.list-thumbnail a.overlay-linear::before {
+    background: linear-gradient(0deg, transparent, rgba(0,0,0,0.5) );
+}
+.list-thumbnail a.overlay-radial::before {
+    background: radial-gradient(transparent, rgba(0,0,0,0.8) );
 }
 .list-col-date {
     font-size: 12px;
@@ -118,6 +135,9 @@ section > div[class*='container'] {
 }
 .text-editor p {
     color: var(--primary-grey);
+}
+.single .text-editor h2, .single .text-editor h3, .single .text-editor h4, .single .text-editor h5, .single .text-editor h6 {
+    font-weight: var(--fw-medium);
 }
 .post-thumbnail {
     overflow: hidden;
@@ -193,4 +213,82 @@ section > div[class*='container'] {
 }
 #philosophy-accordion .accordion-button::after {
     display: none;
+}
+.filter-list {
+    gap: 16px;
+    flex: 1;
+}
+.filter-list .btn {
+    text-transform: uppercase;
+}
+.listing-body {
+    overflow: hidden;
+}
+.listing-body-inner {
+    display: block;
+    width: 100%;
+    min-height: 300px;
+}
+.listing-page.listing-works .listing-body-inner {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 60px 90px;
+}
+.listing-page.listing-works .listing-body-inner .list-thumbnail {
+    background: var(--primary-grey);
+}
+.listing-page.listing-works .listing-body-inner .list-thumbnail a, .listing-page.listing-works .listing-body-inner .list-thumbnail img {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+.listing-page.listing-works .listing-body-inner .list-thumbnail a {
+    height: 400px;
+}
+.list-text-divider {
+    transform: translateY(-2px);
+}
+.listing-pagination {
+    width: 100%;
+}
+.listing-pagination, .listing-pagination .archive-pagination, .listing-pagination .page-numbers {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.listing-pagination .archive-pagination {
+    width: 100%;
+    gap: 12px 20px;
+}
+.listing-pagination .page-numbers {
+    min-width: 32px;
+    height: 32px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+.listing-pagination .page-numbers.current {
+    background: var(--primary-white);
+    color: var(--primary-black);
+}
+.listing-pagination .page-numbers:not(.prev):not(.next) {
+    border: 1px solid var(--primary-white);
+}
+.listing-pagination .page-numbers:not(.prev):not(.next):hover {
+    background: var(--primary-grey);
+    color: var(--primary-black);
+}
+.listing-pagination .page-numbers.prev, .listing-pagination .page-numbers.next {
+    display: block;
+    background-position: center center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+.listing-pagination .page-numbers.prev:hover, .listing-pagination .page-numbers.next:hover {
+    opacity: 0.8;
+}
+.listing-pagination .page-numbers.prev {
+    background-image: url(/mldesign/wp-content/uploads/2025/05/chevron-left-white.svg);
+}
+.listing-pagination .page-numbers.next {
+    background-image: url(/mldesign/wp-content/uploads/2025/05/chevron-right-white.svg);
 }

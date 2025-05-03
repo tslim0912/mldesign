@@ -1,0 +1,28 @@
+.single-row > div {
+    width: 100%;
+}
+@media (max-width: 767px) {
+    .single-related-posts {
+        grid-template-columns: repeat(1, 1fr);
+        gap: 50px;
+    }
+    .single-related-posts .list-col.list-col-body {
+        gap: 25px;
+    }
+}
+@media (min-width: 1200px) {
+    .single-related-posts {
+        gap: 30px;
+    }
+    .single-related-posts .list-thumbnail {
+        height: 320px;
+    }
+}
+@media (min-width: 1900px) {
+    .single-related-posts {
+        gap: 50px;
+    }
+    .single-related-posts .list-thumbnail {
+        height: 400px;
+    }
+}
